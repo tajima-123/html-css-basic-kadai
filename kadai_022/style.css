@@ -1,0 +1,115 @@
+/* Step3: 初期リセット・共通スタイル */
+body, h1, p {
+  margin: 0;
+  font-family: sans-serif;
+}
+p, a {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+/* Step4: ヘッダー */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  background-color: rgb(244, 79, 79);
+  color: rgb(255, 255, 255);
+  padding: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Step5: メイン部分 */
+main {
+  padding: 10px;
+}
+#parent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contents {
+  border: 3px solid rgb(238, 204, 204);
+  flex-basis: 25%;
+  padding: 10px 15px;
+  margin: 20px 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contents h2 {
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 3px dotted rgb(236, 122, 122);
+  position: relative;
+  padding-left: 25px; /* ←少し広めにしてスペース確保 */
+  display: inline-block;
+  margin-bottom: 10px;
+  line-height: 1.2; /* ←整える */
+}
+
+.contents h2::before {
+  content: "●";
+  color: rgb(239, 111, 139);
+  position: absolute;
+  left: 0;
+  top: 50%;              /* ←中央に配置 */
+  transform: translateY(-50%); /* ←中央揃えにするマジック */
+  font-size: 20px;       /* ←h2と揃えるためにサイズ調整もおすすめ */
+}
+
+
+.contents p:nth-of-type(2)::first-letter {
+  font-weight: bold;
+  color: rgb(97, 206, 249);
+}
+
+.contents img {
+  margin: 10px 0;
+  width: 70%;
+}
+
+/* Step6: フッター */
+footer {
+  background-color: rgb(244, 79, 79);
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: rgb(193, 234, 251);
+}
+
+footer a:hover {
+  color: rgb(245, 178, 168);
+}
+
+/* Step7: レスポンシブ対応 */
+@media (max-width: 768px) {
+  #parent {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contents {
+    flex-basis: 90%;
+    margin-bottom: 20px;
+  }
+
+  .contents h2 {
+    font-size: 30px;
+  }
+
+  .contents p {
+    font-size: 25px;
+  }
+}
